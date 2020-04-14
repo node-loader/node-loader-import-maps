@@ -1,0 +1,31 @@
+{
+  "name": "import-map-loader",
+  "version": "1.0.0",
+  "description": "A nodejs loader for import maps",
+  "type": "module",
+  "main": "lib/node-import-map-loader.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --experimental-loader ./lib/node-import-map-loader.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeldenning/node-import-map-loader.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joeldenning/node-import-map-loader/issues"
+  },
+  "homepage": "https://github.com/joeldenning/node-import-map-loader#readme",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "mocha": "^7.1.1",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1"
+  }
+}
