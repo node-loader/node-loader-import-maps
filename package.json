@@ -5,7 +5,7 @@
   "type": "module",
   "main": "lib/node-import-map-loader.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --experimental-loader ./lib/node-import-map-loader.js"
+    "test": "node --experimental-loader ./lib/node-import-map-loader.js ./test/run-tests.js"
   },
   "husky": {
     "hooks": {

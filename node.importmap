@@ -1,5 +1,5 @@
 {
   "imports": {
-    "./hi.js": "file://Users/joeldenning/code/node-import-map-loader/test/fixtures/other-foo.js"
+    "./fixtures/foo.js": "file:///Users/joeldenning/code/node-import-map-loader/test/fixtures/other-foo.js"
   }
 }
