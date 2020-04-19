@@ -1,5 +1,5 @@
 {
-  "name": "import-map-loader",
+  "name": "@node-loader/import-maps",
   "version": "1.0.0",
   "description": "A nodejs loader for import maps",
   "type": "module",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joeldenning/node-import-map-loader.git"
+    "url": "git+https://github.com/node-loader/node-import-map-loader.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joeldenning/node-import-map-loader/issues"
+    "url": "https://github.com/node-loader/node-import-map-loader/issues"
   },
-  "homepage": "https://github.com/joeldenning/node-import-map-loader#readme",
+  "homepage": "https://github.com/node-loader/node-import-map-loader#readme",
   "devDependencies": {
     "husky": "^4.2.5",
     "left-pad": "^1.3.0",
