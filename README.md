@@ -29,5 +29,5 @@ import "my-module";
 Now run node with the `--experimental-loader` flag:
 
 ```sh
-node --experimental-loader node-import-map-loader file.js
+node --experimental-loader @node-loader/import-maps file.js
 ```
