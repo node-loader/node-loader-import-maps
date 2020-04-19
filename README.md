@@ -5,7 +5,7 @@ A [nodejs loader](https://nodejs.org/dist/latest-v13.x/docs/api/esm.html#esm_exp
 ## Installation
 
 ```sh
-npm install node-import-map-loader
+npm install @node-loader/import-maps
 ```
 
 ## Usage
