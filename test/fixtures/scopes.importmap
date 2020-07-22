@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "foo": "./test/fixtures/foo.js"
+  },
+  "scopes": {
+    "./test/": {
+      "foo": "./test/fixtures/other-foo.js"
+    }
+  }
+}
