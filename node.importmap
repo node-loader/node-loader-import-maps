@@ -1,7 +1,0 @@
-{
-  "imports": {
-    "./fixtures/foo.js": "file:///Users/joeldenning/code/node-import-map-loader/test/fixtures/other-foo.js",
-    "./fixtures/something.cjs": "file:///Users/joeldenning/code/node-import-map-loader/test/fixtures/other-something.js",
-    "left-pad": "file:///Users/joeldenning/code/node-import-map-loader/test/fixtures/other-left-pad.js"
-  }
-}

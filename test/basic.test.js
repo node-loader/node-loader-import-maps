@@ -1,18 +1,30 @@
 import assert from "assert";
-import { version as fooVersion } from "./fixtures/foo.js";
-import { version as somethingVersion } from "./fixtures/something.cjs";
-import leftPad from "left-pad";
+import fs from "fs";
 
 describe(`basic usage`, () => {
-  it(`overrides the default nodejs resolution`, () => {
-    assert.equal(fooVersion, "overridden");
+  before(() => {
+    global.nodeLoader.setImportMapPromise(
+      Promise.resolve().then(async () => {
+        const str = await fs.promises.readFile(
+          "./test/fixtures/basic.importmap"
+        );
+        return JSON.parse(str);
+      })
+    );
   });
 
-  it(`cannot override a cjs file`, () => {
-    assert.equal(somethingVersion, "default");
+  it(`overrides the default nodejs resolution`, async () => {
+    const foo = await import("./fixtures/foo.js");
+    assert.equal(foo.version, "overridden");
   });
 
-  it(`can override a bare specifier in node-modules`, () => {
-    assert.equal(leftPad, "overridden");
+  it(`cannot override a cjs file`, async () => {
+    const something = await import("./fixtures/something.cjs");
+    assert.equal(something.version, "default");
+  });
+
+  it(`can override a bare specifier in node-modules`, async () => {
+    const leftPad = await import("left-pad");
+    assert.equal(leftPad.default, "overridden");
   });
 });
