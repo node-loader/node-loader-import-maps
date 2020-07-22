@@ -26,8 +26,8 @@
     "cross-env": "^7.0.2",
     "husky": "^4.2.5",
     "left-pad": "^1.3.0",
-    "mocha": "^7.1.1",
-    "prettier": "^2.0.4",
+    "mocha": "^8.0.1",
+    "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   }
 }
