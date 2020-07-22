@@ -1,4 +1,4 @@
-# node-import-map-loader
+# @node-loader/import-maps
 
 A [nodejs loader](https://nodejs.org/dist/latest-v13.x/docs/api/esm.html#esm_experimental_loaders) for [import maps](https://github.com/WICG/import-maps). This allows you to customize module resolution by creating a `node.importmap` file.
 
