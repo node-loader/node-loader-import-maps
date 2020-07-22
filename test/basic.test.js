@@ -27,4 +27,9 @@ describe(`basic usage`, () => {
     const leftPad = await import("left-pad");
     assert.equal(leftPad.default, "overridden");
   });
+
+  it(`can override a bare specifier not in node_modules`, async () => {
+    const thing = await import("thing");
+    assert.equal(thing.default, "thing");
+  });
 });
