@@ -32,7 +32,7 @@ Now run node with the `--experimental-loader` flag:
 node --experimental-loader @node-loader/import-maps file.js
 ```
 
-## Configuring path to import map file
+## Configuration
 
 The path to your import map may be configured with the `IMPORT_MAP_PATH` environment variable:
 
@@ -40,6 +40,6 @@ The path to your import map may be configured with the `IMPORT_MAP_PATH` environ
 IMPORT_MAP_PATH=/Users/name/some/dir/node.importmap node --experimental-loader @node-loader/import-maps file.js
 ```
 
-## Combining with other NodeJS loaders
+## Composition
 
 If you wish to combine import maps with other NodeJS loaders, you may do so by using [node-loader-core](https://github.com/node-loader/node-loader-core).
