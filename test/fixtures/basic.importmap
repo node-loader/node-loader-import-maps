@@ -1,7 +1,7 @@
 {
   "imports": {
-    "./fixtures/foo.js": "./test/fixtures/other-foo.js",
-    "./fixtures/something.cjs": "./test/fixtures/other-something.js",
+    "./test/fixtures/foo.js": "./test/fixtures/other-foo.js",
+    "./test/fixtures/something.cjs": "./test/fixtures/other-something.js",
     "left-pad": "./test/fixtures/other-left-pad.js",
     "thing": "./test/fixtures/thing.js"
   }

@@ -5,7 +5,10 @@ A [nodejs loader](https://nodejs.org/dist/latest-v13.x/docs/api/esm.html#esm_exp
 ## Installation
 
 ```sh
-npm install @node-loader/import-maps
+npm install --save @node-loader/import-maps
+
+# Or, if you prefer Yarn
+yarn add --save @node-loader/import-maps
 ```
 
 ## Usage
