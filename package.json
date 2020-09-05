@@ -1,6 +1,6 @@
 {
   "name": "@node-loader/import-maps",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A nodejs loader for import maps",
   "type": "module",
   "main": "lib/node-import-map-loader.js",
