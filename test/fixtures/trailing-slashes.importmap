@@ -1,6 +1,8 @@
 {
   "imports": {
     "pkg": "./test/fixtures/pkg/index.js",
-    "pkg/": "./test/fixtures/pkg/"
+    "pkg/": "./test/fixtures/pkg/",
+    "@scope/foo": "./test/fixtures/scope/foo/index.js",
+    "@scope/foo/": "./test/fixtures/scope/foo/"
   }
 }

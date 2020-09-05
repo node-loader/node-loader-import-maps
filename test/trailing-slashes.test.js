@@ -15,14 +15,22 @@ describe(`packages via trailing slashes`, () => {
   });
 
   it(`can load the pkg entry module`, async () => {
-    console.log("loading pkg index");
     const pkgIndex = await import("pkg");
     assert.equal(pkgIndex.default, "pkg index");
   });
 
   it(`can load submodules of pkg`, async () => {
-    console.log("loading pkg file");
     const pkgFile = await import("pkg/pkg-file.js");
     assert.equal(pkgFile.default, "pkg file");
+  });
+
+  it(`can load modules with @ in their name`, async () => {
+    const pkgFile = await import("@scope/foo");
+    assert.equal(pkgFile.default, "@scope/foo index");
+  });
+
+  it(`can load submodules of packages with @ in their name`, async () => {
+    const pkgFile = await import("@scope/foo/bar.js");
+    assert.equal(pkgFile.default, "@scope/foo bar");
   });
 });
