@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "pkg": "./test/fixtures/pkg/index.js",
+    "pkg/": "./test/fixtures/pkg/"
+  }
+}
