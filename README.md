@@ -37,7 +37,7 @@ node --experimental-loader @node-loader/import-maps file.js
 
 ## Configuration
 
-By default, node-loader core looks for a configuration file called `node.importmap` in the current working directory. To specify the file path to the configuration file, provide the `IMPORT_MAP_PATH` environment variable:
+By default, node-loader import maps looks for a configuration file called `node.importmap` in the current working directory. To specify the file path to the configuration file, provide the `IMPORT_MAP_PATH` environment variable:
 
 ```sh
 IMPORT_MAP_PATH=/Users/name/some/dir/node.importmap node --experimental-loader @node-loader/import-maps file.js
