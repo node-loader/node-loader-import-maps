@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/node-loader/node-import-map-loader.git"
+    "url": "git+https://github.com/node-loader/node-loader-import-maps.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/node-loader/node-import-map-loader/issues"
+    "url": "https://github.com/node-loader/node-loader-import-maps/issues"
   },
-  "homepage": "https://github.com/node-loader/node-import-map-loader#readme",
+  "homepage": "https://github.com/node-loader/node-loader-import-maps#readme",
   "publishConfig": {
     "access": "public"
   },
