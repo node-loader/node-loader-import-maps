@@ -5,7 +5,8 @@
   "type": "module",
   "main": "lib/node-import-map-loader.js",
   "scripts": {
-    "test": "cross-env node --experimental-loader ./lib/node-import-map-loader.js ./test/run-tests.js"
+    "test": "cross-env node --experimental-loader ./lib/node-import-map-loader.js ./test/run-tests.js",
+    "check-format": "prettier --check ."
   },
   "husky": {
     "hooks": {
