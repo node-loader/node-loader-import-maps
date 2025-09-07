@@ -58,6 +58,20 @@ register("@node-loader/import-maps", {
 
 Now run main.js with the [`--import`](https://nodejs.org/api/cli.html#--importmodule) NodeJS flag:
 
+To dynamically change the import map after startup, do the following:
+
+```js
+global.importMapPort.postMessage({
+  // Provide either importMap or importMapUrl, but not both
+  importMap: {
+    imports: {},
+    scopes: {},
+  },
+
+  importMapUrl: "./node.importmap",
+});
+```
+
 ```sh
 node --import ./register-hooks.js main.js
 ```
