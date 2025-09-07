@@ -1,16 +1,11 @@
-import assert from "assert";
-import fs from "fs";
+import assert from "node:assert";
+import { URL } from "node:url";
 
 describe(`basic usage`, () => {
   before(() => {
-    global.nodeLoader.setImportMapPromise(
-      Promise.resolve().then(async () => {
-        const str = await fs.promises.readFile(
-          "./test/fixtures/basic.importmap"
-        );
-        return JSON.parse(str);
-      })
-    );
+    global.importMapPort.postMessage({
+      importMapUrl: new URL("./fixtures/basic.importmap", import.meta.url).href,
+    });
   });
 
   it(`overrides the default nodejs resolution`, async () => {

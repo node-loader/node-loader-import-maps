@@ -13,14 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "16.12"
-      - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6.20.3
+          node-version: "latest"
+      - uses: pnpm/action-setup@v4
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
       - run: pnpm run check-format
-      - run: pnpm run lint

@@ -3,14 +3,10 @@ import fs from "fs";
 
 describe(`basic usage`, () => {
   before(() => {
-    global.nodeLoader.setImportMapPromise(
-      Promise.resolve().then(async () => {
-        const str = await fs.promises.readFile(
-          "./test/fixtures/scopes.importmap"
-        );
-        return JSON.parse(str);
-      })
-    );
+    global.importMapPort.postMessage({
+      importMapUrl: new URL("./fixtures/scopes.importmap", import.meta.url)
+        .href,
+    });
   });
 
   it(`uses a scope mapping instead of top level mapping`, async () => {

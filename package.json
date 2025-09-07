@@ -5,23 +5,18 @@
   "type": "module",
   "main": "lib/node-import-map-loader.js",
   "scripts": {
-    "test": "cross-env node --experimental-loader ./lib/node-import-map-loader.js ./test/run-tests.js",
-    "lint": "eslint lib",
+    "test": "node --import ./test/register-hooks.js ./test/run-tests.js",
+    "prepare": "husky",
     "check-format": "prettier --check ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/node-loader/node-loader-import-maps.git"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=20"
   },
-  "author": "",
+  "author": "Jolyn",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/node-loader/node-loader-import-maps/issues"
@@ -30,14 +25,13 @@
   "publishConfig": {
     "access": "public"
   },
+  "packageManager": "pnpm@10.15.1",
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "eslint": "^8.2.0",
-    "eslint-config-node-important-stuff": "^2.0.0",
-    "husky": "^4.3.0",
+    "heeler": "^4.0.0",
+    "husky": "^9.1.7",
     "left-pad": "^1.3.0",
-    "mocha": "^8.1.3",
-    "prettier": "^2.1.2",
-    "pretty-quick": "^3.0.2"
+    "mocha": "^11.7.2",
+    "prettier": "^3.6.2",
+    "pretty-quick": "^4.2.2"
   }
 }

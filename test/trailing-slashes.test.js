@@ -1,17 +1,13 @@
 import assert from "assert";
-import fs from "fs";
 
 describe(`packages via trailing slashes`, () => {
   before(() => {
-    global.nodeLoader.setImportMapPromise(
-      Promise.resolve().then(async () => {
-        const str = await fs.promises.readFile(
-          "./test/fixtures/trailing-slashes.importmap",
-          "utf-8"
-        );
-        return JSON.parse(str);
-      })
-    );
+    global.importMapPort.postMessage({
+      importMapUrl: new URL(
+        "./fixtures/trailing-slashes.importmap",
+        import.meta.url,
+      ).href,
+    });
   });
 
   it(`can load the pkg entry module`, async () => {
