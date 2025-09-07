@@ -1,48 +1,63 @@
 # @node-loader/import-maps
 
-A [nodejs loader](https://nodejs.org/dist/latest-v13.x/docs/api/esm.html#esm_experimental_loaders) for [import maps](https://github.com/WICG/import-maps). This allows you to customize module resolution by creating a `node.importmap` file.
+[NodeJS customization hooks](https://nodejs.org/api/module.html#customization-hooks) to add support for [import maps](https://github.com/WICG/import-maps) to NodeJS. This allows you to customize module resolution by creating a `node.importmap` file.
 
 ## Installation
 
 ```sh
 npm install --save @node-loader/import-maps
-
-# Or, if you prefer Yarn
-yarn add --save @node-loader/import-maps
+pnpm install --save @node-loader/import-maps
 ```
 
 ## Usage
 
-Create a file `node.importmap` in the current working directory:
+Create a file (e.g. `node.importmap`) in the current working directory:
 
 ```json
 {
   "imports": {
-    "my-module": "file:///Users/name/code/my-module.js"
+    "my-module": "file:///home/name/code/my-module.js"
   }
 }
 ```
 
-Now create a file that imports the mapped module:
+Now create a file `main.js` that imports the mapped module:
 
 ```js
 import "my-module";
 ```
 
-Now run node with the `--experimental-loader` flag:
+Now create a [startup module](https://nodejs.org/api/cli.html#--importmodule) `register-hooks.js`:
 
-```sh
-node --experimental-loader @node-loader/import-maps file.js
+```js
+import { register } from "node:module";
+import { MessageChannel } from "node:worker_threads";
+
+const messageChannel = new MessageChannel();
+
+global.importMapPort = messageChannel.port1;
+
+register("@node-loader/import-maps", {
+  data: {
+    // optional, provides a way to update the import map later on
+    port: messageChannel.port2,
+
+    // optional, import map object
+    importMap: {
+      imports: {},
+      scopes: {},
+    },
+
+    // optional, file url resolved relative to current working directory
+    // This option is ignored if importMap is provided
+    importMapUrl: "./node.importmap",
+  },
+  transferList: [messageChannel.port2],
+});
 ```
 
-## Configuration
-
-By default, node-loader import maps looks for a configuration file called `node.importmap` in the current working directory. To specify the file path to the configuration file, provide the `IMPORT_MAP_PATH` environment variable:
+Now run main.js with the [`--import`](https://nodejs.org/api/cli.html#--importmodule) NodeJS flag:
 
 ```sh
-IMPORT_MAP_PATH=/Users/name/some/dir/node.importmap node --experimental-loader @node-loader/import-maps file.js
+node --import ./register-hooks.js main.js
 ```
-
-## Composition
-
-If you wish to combine import maps with other NodeJS loaders, you may do so by using [node-loader-core](https://github.com/node-loader/node-loader-core).
