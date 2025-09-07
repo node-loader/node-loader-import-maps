@@ -25,7 +25,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "packageManageer": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.15.1",
   "devDependencies": {
     "heeler": "^4.0.0",
     "husky": "^9.1.7",
